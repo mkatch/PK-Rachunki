@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block subtitle %}Zaloguj się | {% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'registration/css/login.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div id="logo-row">
+        <div id="logo-column">
+            <img id="logo" src="{% static 'registration/img/logo.png' %}"/>
+        </div>
+    </div>
+    <form id="login-form" action="{% url 'django.contrib.auth.views.login' %}" method="post">
+        <input id="username" type="text" name="username" placeholder="Nazwa użytkownika">
+        <input id="password" type="password" name="password" placeholder="Hasło">
+        <input id="log-in" class="positive" type="submit" value="Zaloguj się">
+    </form>
+{% endblock %}

@@ -1,0 +1,11 @@
+- model: bills.bill
+  pk: 1/2014
+  fields:
+    user: 1
+    client_name: Jan Kowalski
+
+- model: bills.bill
+  pk: 2/2014
+  fields:
+    user: 1
+    client_name: Adam Nowak

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base_navbar.css'%}">
+{% endblock %}
+
+{% block body %}
+    <div id="navbar">
+        <div id="navbar-content">
+            <h1 id="navbar-title">{% block navbar_title %}PK Rachunki{% endblock %}</h1>
+        </div>
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}

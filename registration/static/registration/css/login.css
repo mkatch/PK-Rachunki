@@ -1,0 +1,34 @@
+#logo-row {
+    border-bottom: 1px solid red;
+}
+
+#logo-column {
+    width: 400px;
+    margin: 0 auto;
+    border-bottom: 5px solid red;
+}
+
+#logo {
+    margin-top: 100px;
+    margin-bottom: 25px;
+    width: 400px;
+    height:
+}
+
+#login-form {
+    width: 300px;
+    margin: 50px auto 0px auto;
+}
+
+#username,
+#password {
+    width: 100%;
+    height: 44px;
+    font-size: 19px;
+    margin: 6px 0px;
+}
+
+#log-in {
+    width: 60%;
+    margin: 10px auto;
+}
