@@ -1,75 +1,30 @@
 {% extends 'base_navbar.html' %}
 
+{% load staticfiles %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bills.css' %}" />
+{% endblock styles %}
+
 {% block content %}
+    <div id="new-bill-row">
+        <button id="new-bill-button" class="positive">Nowy</button>
+    </div>
     {% if bills %}
-        <ul>
-        {% for bill in bills %}
-            <li><a href="{{ bill.get_absolute_url }}">{{ bill }}</a></li>
-        {% endfor %}
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-        </ul>
+        <div class="table index" id="bill-list">
+            <div class="row head">
+                <div class="cell id">Numer</div>
+                <div class="cell client">Adresat</div>
+                <div class="cell amount">Kwota</div>
+            </div>
+            {% for bill in bills %}
+                <a class="row" href="{{ bill.get_absolute_url }}">
+                    <div class="cell id">{{ bill.id }}</div>
+                    <div class="cell client">{{ bill.client_name }}</div>
+                    <div class="cell amount">{{ 1000 }}</div>
+                </a>
+            {% endfor %}
+        </div>
     {% else %}
         No bills
     {% endif %}

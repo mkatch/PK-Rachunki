@@ -15,6 +15,7 @@
         </div>
     </div>
     <form id="login-form" action="{% url 'django.contrib.auth.views.login' %}" method="post">
+        {% csrf_token %}
         <input id="username" type="text" name="username" placeholder="Nazwa użytkownika">
         <input id="password" type="password" name="password" placeholder="Hasło">
         <input id="log-in" class="positive" type="submit" value="Zaloguj się">
