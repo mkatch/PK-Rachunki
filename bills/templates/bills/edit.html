@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-datepicker/css/datepicker3.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/edit.css' %}"/>
+    <script defer src="{% static 'bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+    <script defer src="{% static 'bootstrap-datepicker/js/locales/bootstrap-datepicker.pl.js' %}"></script>
+    <script defer src="{% static 'bills/js/edit.js' %}"></script>
+{% endblock head %}
+
+{% block content %}
+    <div id="top-panels">
+        <div id="client-panel" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Adresat</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="client-name">Nazwa:</label>
+                    <input id="client-name" class="form-control" type="text"
+                           name="client-name">
+                </div>
+                <div class="form-group">
+                    <label for="client-address">Adres:</label>
+                    <textarea id="client-address" class="form-control" rows="2"
+                              name="client-name"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Budowa</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="begin-date">Początek:</label>
+                    <input id="begin-date" class="form-control datepicker"
+                           type="text" name="begin-date">
+                </div>
+                <div class="form-group">
+                    <label for="end-date">Koniec:</label>
+                    <input id="end-date" class="form-control datepicker"
+                           type="text" name="begin-date">
+                </div>
+                <div class="form-group">
+                    <label for="site">Adres:</label>
+                    <textarea id="site" class="form-control" rows="2"
+                              name="site"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="entries-header" class="expand">
+        <div class="name"></div>
+        <div class="quantity">Ilość</div>
+        <div class="unit"></div>
+        <div class="unit-price">Cena jedn.</div>
+        <div class="price">Cena</div>
+    </div>
+    <table id="entries" class="expand">
+        <thead>
+            <tr><th>lol</th><th>man</th><th>han</th></tr>
+        </thead>
+        <tbody id="entries-body">
+            {% for i in "xxxxxxxx" %}
+                <tr id="row-{{ forloop.counter0 }}">
+                    <td>lol {{ forloop.counter0 }}</td>
+                    <td class="name">man {{ forloop.counter0 }}</td>
+                    <td><input class="form-control" type="text"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

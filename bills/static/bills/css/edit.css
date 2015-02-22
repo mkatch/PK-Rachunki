@@ -1,0 +1,57 @@
+#top-panels {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+}
+
+#top-panels>* {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+#client-panel {
+    margin-right: 15px;
+}
+
+#entries {
+    border-collapse: separate;
+}
+
+#entries-body td {
+    padding: 5px 0px;
+    border: 1px solid transparent;
+}
+
+#entries-body > tr:hover > td {
+    background: white;
+    box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.05);
+    border-top-color: #ddd;
+    border-bottom-color: #ddd;
+}
+#entries-body td:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+#entries-body td:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+#entries-body > tr:hover > td > div {
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+#entries-body > tr:hover > td:first-child > div {
+    border-left-style: solid;
+}
+#entries-body > tr:hover > td:last-child > div {
+    border-right-style: solid;
+}
+
+#entries-body > tr:not(:hover) > td > input:not(:focus) {
+    border-color: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

@@ -6,11 +6,22 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block subtitle %}{% endblock %}PK Rachunki</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
+    <script defer src="{% static 'jquery/jquery-1.11.2.min.js' %}"></script>
+    <script defer src="{% static 'jquery/jquery-ui.min.js' %}"></script>
     {% block head %}{% endblock %}
-    {% block styles %}{% endblock %}
 </head>
 <body>
-    {% block body %}{% endblock %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">PK Rachunki</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

@@ -1,14 +1,15 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
 
 {% load staticfiles %}
 
-{% block subtitle %}Zaloguj się | {% endblock %}
-
-{% block styles %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Zaloguj się | PK Rachunki</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'registration/css/login.css' %}"/>
-{% endblock %}
-
-{% block body %}
+</head>
+<body>
     <div id="logo-row">
         <div id="logo-column">
             <img id="logo" src="{% static 'registration/img/logo.png' %}"/>
@@ -16,8 +17,9 @@
     </div>
     <form id="login-form" action="{% url 'django.contrib.auth.views.login' %}" method="post">
         {% csrf_token %}
-        <input id="username" type="text" name="username" placeholder="Nazwa użytkownika">
-        <input id="password" type="password" name="password" placeholder="Hasło">
-        <input id="log-in" class="positive" type="submit" value="Zaloguj się">
+        <input id="username" class="form-control input-lg" type="text" name="username" placeholder="Nazwa użytkownika">
+        <input id="password" class="form-control input-lg" type="password" name="password" placeholder="Hasło">
+        <input id="log-in" class="btn btn-success" type="submit" value="Zaloguj się">
     </form>
-{% endblock %}
+</body>
+</html>

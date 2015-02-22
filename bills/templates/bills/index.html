@@ -1,17 +1,17 @@
-{% extends 'base_navbar.html' %}
+{% extends 'base.html' %}
 
 {% load staticfiles %}
 
-{% block styles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bills.css' %}" />
-{% endblock styles %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/index.css' %}" />
+{% endblock head %}
 
 {% block content %}
-    <div id="new-bill-row">
-        <button id="new-bill-button" class="positive">Nowy</button>
-    </div>
+    <a class="btn btn-success pull-right" href="new">
+        <span class="glyphicon glyphicon-plus"></span>&nbsp;Nowy
+    </a>
     {% if bills %}
-        <div class="table index" id="bill-list">
+        <div class="table expand" id="bill-list">
             <div class="row head">
                 <div class="cell id">Numer</div>
                 <div class="cell client">Adresat</div>
@@ -20,7 +20,7 @@
             {% for bill in bills %}
                 <a class="row" href="{{ bill.get_absolute_url }}">
                     <div class="cell id">{{ bill.id }}</div>
-                    <div class="cell client">{{ bill.client_name }}</div>
+                    <div class="cell client expand">{{ bill.client_name }}</div>
                     <div class="cell amount">{{ 1000 }}</div>
                 </a>
             {% endfor %}
