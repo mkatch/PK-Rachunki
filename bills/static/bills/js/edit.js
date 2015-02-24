@@ -6,9 +6,24 @@ $('.datepicker').datepicker({
     todayHighlight: true
 });
 
-$('#entries-body').sortable({
-    helper: function(event, elem) {
-        var nameNode = elem.children(".name")[0];
-        return nameNode.cloneNode(true);
-    },
+$('#all-entries-button').click(function () {
+    console.log("YoMama!");
+    var cb = $('#all-entries-checkbox');
+    cb.prop("checked", !cb.prop("checked")).trigger("change");
+});
+
+$('#all-entries-checkbox').change(function () {
+    var checked = $(this).prop("checked");
+    var slaves = $('.entry-checkbox');
+    for (var i = 0; i < slaves.length; ++i) {
+        slaves.prop("checked", checked);
+    }
+});
+
+$('#all-entries-checkbox').click(function (event) {
+    event.stopPropagation();
+});
+
+$('#entries').sortable({
+    handle: ".entry-handle",
 });

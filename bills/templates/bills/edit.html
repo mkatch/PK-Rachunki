@@ -52,25 +52,40 @@
             </div>
         </div>
     </div>
+    <button id="all-entries-button" class="btn btn-default pull-left">
+        <input id="all-entries-checkbox" type="checkbox">Wszystkie
+    </button>
+    <button id="new-entry-button" class="btn btn-success pull-left">
+        <span class="glyphicon glyphicon-plus"></span>&nbsp;Nowa pozycja
+    </button>
+    <button id="delete-entries-button" class="btn btn-danger pull-right">
+        <span class="glyphicon glyphicon-trash"></span>&nbsp;Usuń zaznaczone
+    </button>
     <div id="entries-header" class="expand">
-        <div class="name"></div>
-        <div class="quantity">Ilość</div>
-        <div class="unit"></div>
-        <div class="unit-price">Cena jedn.</div>
-        <div class="price">Cena</div>
+        <div class="entry-name"></div>
+        <div class="entry-quantity">Ilość</div>
+        <div class="entry-unit"></div>
+        <div class="entry-unit-price">Cena jedn.</div>
+        <div class="entry-price">Cena</div>
     </div>
-    <table id="entries" class="expand">
-        <thead>
-            <tr><th>lol</th><th>man</th><th>han</th></tr>
-        </thead>
-        <tbody id="entries-body">
-            {% for i in "xxxxxxxx" %}
-                <tr id="row-{{ forloop.counter0 }}">
-                    <td>lol {{ forloop.counter0 }}</td>
-                    <td class="name">man {{ forloop.counter0 }}</td>
-                    <td><input class="form-control" type="text"></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <ul id="entries" class="list-group">
+        {% for i in "xxxxxx" %}
+            <li>
+                <div class="entry-handle">
+                    <span class="glyphicon glyphicon-option-vertical"></span>
+                </div>
+                <input class="entry-checkbox" type="checkbox">
+                <div class="entry">
+                    <input class="entry-name form-control" rows="1"></textarea>
+                    <input class="entry-quantity form-control" type="text">
+                    <select class="entry-unit form-control">
+                        <option value="val">Val</option>
+                        <option value="jolo">Jolo</option>
+                    </select>
+                    <input class="entry-unit-price form-control" type="text">
+                    <input class="entry-price form-control" type="text">
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock content %}

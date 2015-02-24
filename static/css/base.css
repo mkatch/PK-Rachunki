@@ -2,10 +2,21 @@ body {
     padding-top: 50px;
 }
 
+.container {
+    width: 800px;
+    padding: 0;
+}
+
 .expand {
     width: 100% !important;
 }
 
 .form-group:last-child {
     margin-bottom: 0px;
+}
+
+input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    margin: 0;
 }

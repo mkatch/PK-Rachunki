@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import (render, redirect)
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from bills.models import (Bill, BillEntry)
@@ -13,9 +13,14 @@ def index(request):
 def new(request):
     bill = Bill(user=request.user)
     bill.save()
-    context = {'bill': bill}
-    return render(request, 'bills/edit.html', context)
+    return redirect('edit', bill_id=bill.id)
 
 @login_required
 def detail(request, bill_id):
     return HttpResponse('This is bill %s detail page' % bill_id)
+
+@login_required
+def edit(request, bill_id):
+    bill = Bill.objects.get(id=bill_id)
+    context = {'bill': bill}
+    return render(request, 'bills/edit.html', context)
