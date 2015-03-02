@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load i18n %}
+{% load bills %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/edit_bill.css' %}"/>
+    <script defer src="{% static 'mustache/js/mustache.min.js' %}"></script>
+    <script defer src="{% static 'bills/js/edit_bill.js' %}"></script>
+    <script id="entry-template" type="x-tmpl-mustache">
+        {% show_entry_form entry_template %}
+    </script>
+{% endblock head %}
+
+{% block content %}
+<form action="{% url 'bills.forms.edit_bill' bill_form.instance.id %}"
+      method="post">
+    {% csrf_token %}
+    <div id="top-panels">
+        <div id="client-panel" class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Adresat</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    {{ bill_form.client_name.label_tag }}
+                    {{ bill_form.client_name }}
+                </div>
+                <div class="form-group">
+                    {{ bill_form.client_address.label_tag }}
+                    {{ bill_form.client_address }}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Budowa</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    {{ bill_form.begin_date.label_tag }}
+                    {{ bill_form.begin_date }}
+                </div>
+                <div class="form-group">
+                    {{ bill_form.end_date.label_tag }}
+                    {{ bill_form.end_date }}
+                </div>
+                <div class="form-group">
+                    {{ bill_form.site.label_tag }}
+                    {{ bill_form.site }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="all-entries-button" class="btn btn-default pull-left"
+            type="button">
+        <input id="all-entries-checkbox" type="checkbox">
+        {% trans 'All entries' %}
+    </button>
+    <button id="new-entry-button" class="btn btn-success pull-left"
+            type="button">
+        <span class="glyphicon glyphicon-plus"></span>
+        &nbsp;{% trans 'New entry' %}
+    </button>
+    <button id="remove-entries-button" class="btn btn-danger pull-right"
+            type="button">
+        <span class="glyphicon glyphicon-trash"></span>
+        &nbsp;{% trans 'Remove selected' %}
+    </button>
+    <div id="entries-header" class="expand">
+        <div class="entry-description"></div>
+        <div class="entry-quantity">{% trans 'Quantity' %}</div>
+        <div class="entry-unit"></div>
+        <div class="entry-unit-price">{% trans 'Unit price' %}</div>
+        <div class="entry-price">{% trans 'Price' %}</div>
+    </div>
+    <ul id="entries" class="list-group">
+        {% for entry_form in entry_forms %}
+            {% show_entry_form entry_form %}
+        {% endfor %}
+    </ul>
+    {{ bill_form.edit_token }}
+    <button type="submit">Submit</button>
+    {{ bill_form.media }}
+</form>
+{% endblock content %}

@@ -1,0 +1,11 @@
+<li>
+    <div class="entry-handle">
+        <span class="glyphicon glyphicon-option-vertical"></span>
+    </div>
+    <input class="entry-checkbox" type="checkbox">
+    <div class="entry">
+        {% for field in form %}
+            {{ field }}
+        {% endfor %}
+    </div>
+</li>

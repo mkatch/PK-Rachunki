@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url
 
 from bills import views
+from bills import forms
 
 urlpatterns = patterns(
     '',
@@ -11,5 +12,5 @@ urlpatterns = patterns(
     # ex: /bills/3/
     url(r'^(?P<bill_id>\d+)/$', views.detail, name='detail'),
     # ex: /bills/3/edit
-    url(r'^(?P<bill_id>\d+)/edit/$', views.edit, name='edit'),
+    url(r'^(?P<bill_id>\d+)/edit/$', forms.edit_bill, name='edit'),
 )

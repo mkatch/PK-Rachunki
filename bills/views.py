@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from bills.models import (Bill, BillEntry)
 
-
 @login_required
 def index(request):
     context = {'bills': request.user.bills.all}
@@ -13,11 +12,15 @@ def index(request):
 def new(request):
     bill = Bill(user=request.user)
     bill.save()
+    print(bill.edit_token)
     return redirect('edit', bill_id=bill.id)
 
 @login_required
 def detail(request, bill_id):
-    return HttpResponse('This is bill %s detail page' % bill_id)
+    if request.method == "GET":
+        return HttpResponse("This is bill %s detail page" % bill_id)
+    elif request.method == "POST":
+        return HttpResponse("This is bill %s detail page POST" % bill_id)
 
 @login_required
 def edit(request, bill_id):
