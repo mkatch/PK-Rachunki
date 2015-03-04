@@ -82,6 +82,8 @@
     </ul>
     {{ bill_form.edit_token }}
     <button type="submit">Submit</button>
+    {% comment %} TODO: Handle duplicate media {% endcomment %}
     {{ bill_form.media }}
+    {{ entry_template.media }}
 </form>
 {% endblock content %}

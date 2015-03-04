@@ -61,7 +61,7 @@ class BillEntry(models.Model):
     bill = models.ForeignKey(Bill, related_name='entries')
     ord = models.IntegerField(default=0)
     description = models.TextField()
-    unit = models.CharField(max_length=4, choices=UNITS, blank=True)
+    unit = models.CharField(max_length=4, choices=UNITS, default=ITEM)
     quantity = models.DecimalField(max_digits=11, decimal_places=2, blank=True,
                                    null=True)
     unit_price = models.DecimalField(max_digits=11, decimal_places=2,

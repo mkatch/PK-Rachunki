@@ -19,11 +19,15 @@ class TextArea(_with_extra_classes(django.forms.Textarea, 'form-control')):
     pass
 
 
-class Select(_with_extra_classes(django.forms.Select, 'form-control')):
-    pass
+class Select(_with_extra_classes(django.forms.Select,
+                                 'form-control bs-select')):
+    class Media:
+        css = {
+            'all': ('bootstrap/css/widgets.css',),
+        }
 
 class DatePicker(_with_extra_classes(django.forms.TextInput,
-                                     'form-control bootstrap-datepicker')):
+                                     'form-control bs-datepicker')):
     class Media:
         css = {
             'all': ('bootstrap-datepicker/css/datepicker3.css',),
@@ -31,5 +35,5 @@ class DatePicker(_with_extra_classes(django.forms.TextInput,
         js = (
             'bootstrap-datepicker/js/bootstrap-datepicker.js',
             'bootstrap-datepicker/js/locales/bootstrap-datepicker.pl.js',
-            'bootstrap/js/datepicker.js',
+            'bootstrap/js/widgets.js',
         )

@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.forms import ModelForm
 from django.forms.widgets import HiddenInput
-from bootstrap.widgets import (TextInput, TextArea, Select, DatePicker)
+from bootstrap.widgets import *
 from bills.models import (Bill, BillEntry)
 
 class BillForm(ModelForm):
@@ -55,8 +55,9 @@ class BillEntryForm(ModelForm):
             'ord': HiddenInput(attrs={'class': 'entry-ord'}),
             'description': TextArea(attrs={'class': 'entry-description',
                                            'rows': 1}),
-            'quantity': TextInput(attrs={'class': 'entry-quantity'}),
-            'unit': Select(attrs={'class': 'entry-unit'}),
+            'quantity': TextInput(
+                attrs={'class': 'entry-quantity addon-left'}),
+            'unit': Select(attrs={'class': 'entry-unit addon-right'}),
             'unit_price': TextInput(attrs={'class': 'entry-unit-price'}),
             'price': TextInput(attrs={'class': 'entry-price'}),
         }

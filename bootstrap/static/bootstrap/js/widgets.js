@@ -1,6 +1,6 @@
 $(function () {
 
-$('.bootstrap-datepicker').datepicker({
+$('.bs-datepicker').datepicker({
     format: "d.mm.yyyy",
     todayBtn: "linked",
     language: "pl",

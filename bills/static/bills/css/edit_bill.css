@@ -75,10 +75,10 @@ input.entry-checkbox {
     margin-right: 10px
 }
 .entry-quantity {
-    width: 60px;
+    width: 100px;
 }
 .entry-unit {
-    width: 40px;
+    width: 60px;
 }
 .entry-unit-price,
 .entry-price {
