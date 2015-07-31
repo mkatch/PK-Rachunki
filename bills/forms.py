@@ -8,6 +8,7 @@ from django.forms.widgets import HiddenInput
 from bootstrap.widgets import *
 from bills.models import (Bill, BillEntry)
 
+
 class BillForm(ModelForm):
     class Meta:
         model = Bill
@@ -39,6 +40,7 @@ class BillForm(ModelForm):
             'end_date': _("End date"),
             'tax': _("Tax"),
         }
+
 
 class BillEntryForm(ModelForm):
     class Meta:
